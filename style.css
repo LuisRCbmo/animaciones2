@@ -30,7 +30,8 @@ h1 {
     width: 200px;
   }
 
-  .move__right ,.move__left ,.move__up, .arcoiris, .arcoiris2, .grow {
+  .move__right ,.move__left ,.move__up, .arcoiris, .arcoiris2, .grow, .redondear, 
+  .RedondearArcoiris , .diagonal1, .diagonal2 {
     animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -38,24 +39,33 @@ h1 {
 
   .arcoiris{
     animation-name: arcoiris;
+    will-change: background-color;
   }
 
   .arcoiris2{
     animation-name: arcoiris2;
+    will-change: color;
   }
 
   .move__left{
-    animation-name: left;}
-    
-  .move__right{
-    animation-name: right;
+    animation-name: left;
+    will-change: margin-left, widht;
   }
 
   .move__up{
-    animation-name: up;}
+    animation-name: up;
+    border-radius: 10%;
+    will-change: margin-top, height;
+  }
 
   .grow{
     animation-name: grow;
+    will-change: widht, height;
+  }
+
+  .redondear{
+    animation-name: redondear;
+    will-change: border-radius;
   }
 
   .move__rotate{
@@ -63,6 +73,7 @@ h1 {
     animation-iteration-count: infinite;
     animation-name: rotate;
     animation-timing-function: linear;
+    will-change: rotate;
   }
 
   .move__rotateY{
@@ -70,6 +81,7 @@ h1 {
     animation-iteration-count: infinite;
     animation-name: rotateY;
     animation-timing-function: linear;
+    will-change: rotateY;
   }
 
   .move__rotateX{
@@ -77,26 +89,50 @@ h1 {
     animation-iteration-count: infinite;
     animation-name: rotateX;
     animation-timing-function: linear;
+    will-change: rotateX;
+  }
+
+  .RedondearArcoiris{
+    animation-name: arcoiris3;
+    will-change: margin-left, border-radius, background-color, scale;
+  }
+
+  .diagonal1{
+    animation-name: diagonal1;
+    will-change: traslate;
+  }
+
+  .diagonal2{
+    animation-name: diagonal2;
+    will-change: traslate;
   }
 
   @keyframes up{
     from {
       margin-top:0px;
+      height: 50%;
+      transform: skewY(45deg);
     }
     50%{
-      margin-top:660px
+      margin-top:900px;
+      height: 0%;
+      transform: skewY(0deg);
     }
     to {
-      margin-top:0px;;
+      margin-top:0px;
+      height: 50%;
+      transform: skewY(45deg);
     }
   }
 
   @keyframes left{
     0% {
       margin-left:0%;
+      width: 100%;
     }
     50% {
       margin-left:50%;
+      width: 200%;
     }
     100% {
       margin-left:0%;
@@ -117,18 +153,6 @@ h1 {
     }
   }
 
-  @keyframes right{
-    0% {
-      margin-right:0%;
-    }
-    50% {
-      margin-right:50%;
-    }
-    100% {
-      margin-right:0%;
-    }
-  }
-
   @keyframes rotate{
     0% {
       transform: rotate(0deg);
@@ -138,6 +162,31 @@ h1 {
     }
   }
 
+  @keyframes arcoiris3 {
+    0% {
+      margin-left:0px;
+      border-radius: 0%;
+      background-color: green;
+      transform: scale(1);
+    }25%{
+      background-color: orangered;
+    }
+    50% {
+      margin-left:-200px;
+      border-radius: 50%;
+      background-color: yellow;
+      transform: scale(0.5);
+    }75%{
+      background-color: sandybrown;
+    }
+    100% {
+      margin-left:0px;
+      border-radius: 0%;
+      background-color: green;
+      transform: scale(1);
+    }
+  }
+  
   @keyframes arcoiris{
     0%{background-color: blue;}
     20%{background-color: orange;}
@@ -170,6 +219,28 @@ h1 {
     100%{
       transform: rotateX(360deg);
     }
+  }
+
+  @keyframes redondear {
+    from {
+      border-radius: 0%;
+    }
+    50%{
+      border-radius: 100%;
+    }
+    to{border-radius: 0%;}
+  }
+
+  @keyframes diagonal1 {
+    from{transform: translate(0px,0px);}
+    50%{transform: translate(200px,-200px);}
+    to{transform: translate(0px,0px);}
+  }
+
+  @keyframes diagonal2 {
+    from{transform: translate(0px,0px);}
+    50%{transform: translate(-200px,200px);}
+    to{transform: translate(0px,0px);}
   }
 
   .center {
